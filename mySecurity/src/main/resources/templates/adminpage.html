@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>관리자 페이지</title>
+</head>
+<body>
+<h1>관리자 페이지</h1>
+<p th:text="${message}"></p>
+
+<h2>회원 목록</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Username</th>
+        <th>Roles</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="member : ${memberList}">
+        <td th:text="${member.username}"></td>
+        <td th:text="${member.authorities}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/security/">홈으로</a>
+
+<form th:action="@{/security/logout}" method="post">
+    <button type="submit">로그아웃</button>
+</form>
+</body>
+</html>
