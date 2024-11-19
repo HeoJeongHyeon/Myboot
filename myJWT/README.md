@@ -79,7 +79,8 @@ Content-Length: 66
 ```
 **_결과_**
 
-![img.png](img.png)
+![image](https://github.com/user-attachments/assets/d02b3cb9-2e8c-4553-8c47-55bf72689ebd)
+
 
 > **_관리자 로그인_**
 - 서버에서 단 하나의 계정만 생성
@@ -103,7 +104,8 @@ Host: localhost:8080
 Authorization: ••••••
 ````
 **_결과_**
-![img_1.png](img_1.png)
+
+![image](https://github.com/user-attachments/assets/8b389445-b678-4c55-b574-a56b4e3042e2)
 
 
 
