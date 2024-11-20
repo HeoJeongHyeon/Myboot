@@ -26,6 +26,30 @@
 > - 비밀 키 유출시 덴져뤄스
 
 > ### 관련
+- `Header` : HS256과 타입 JWT
+````
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+````
+- `Payload` : Claim 인증 관련 데이터 ID,권한을 넣음.
+````
+{
+  "sub": "user@example.com",
+  "role": "USER",
+  "iat": 1683600000,
+  "exp": 1683686400
+}
+````
+- `Signature`
+  - Header와 Payload를 비밀 키로 서명하여 생성. 토큰 무결성
+````
+HMACSHA256(
+  base64UrlEncode(header) + "." + base64UrlEncode(payload),
+  secret
+)
+````
 - `Secret Key`
   - application.properties 파일에서 Base64로 인코딩 된 Secret Key를 읽어옴.
   - Base64로 인코딩 된 Secret Key를 디코딩하여 HMAC 키로 변환
@@ -81,7 +105,6 @@ Content-Length: 66
 
 ![image](https://github.com/user-attachments/assets/d02b3cb9-2e8c-4553-8c47-55bf72689ebd)
 
-
 > **_관리자 로그인_**
 - 서버에서 단 하나의 계정만 생성
 - 로그인시 토큰 발급
@@ -106,7 +129,6 @@ Authorization: ••••••
 **_결과_**
 
 ![image](https://github.com/user-attachments/assets/8b389445-b678-4c55-b574-a56b4e3042e2)
-
 
 
 
